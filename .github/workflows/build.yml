@@ -34,10 +34,12 @@ jobs:
       - name: Move dashboard to bin directory
         run: |
           mkdir -p bin
-          mv nezha/cmd/dashboard/dashboard bin/
+          cp nezha/cmd/dashboard/dashboard bin/
 
       - name: Commit and push dashboard to bin directory
         run: |
+          git config --global user.name 'fkj-src'
+          git config --global user.email 'fkj8965@gmail.com'
           git add bin/dashboard
           git commit -m "Add compiled dashboard binary to bin directory"
           git push origin main
